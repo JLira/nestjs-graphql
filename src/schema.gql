@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePeopleInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Mutation {
+  createPeople(createPeopleInput: CreatePeopleInput!): People!
+  removePeople(id: Int!): People!
+  updatePeople(updatePeopleInput: UpdatePeopleInput!): People!
+}
+
+type People {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  people(id: Int!): People!
+  peoples: [People!]!
+}
+
+input UpdatePeopleInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
