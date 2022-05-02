@@ -2,29 +2,1062 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreatePeopleInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+input AddPeoplexhierarchiesToPersonInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+type Client {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String!
+  discount: Float!
+  fess: Float!
+  id: String!
+  iss: Float!
+  name: String!
+  updateAt: DateTime!
+}
+
+type ClientAggregateGroupBy {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  discount: Float
+  fess: Float
+  id: String
+  iss: Float
+  name: String
+  updateAt: DateTime
+}
+
+type ClientAvgAggregate {
+  discount: Float
+  fess: Float
+  iss: Float
+}
+
+type ClientConnection {
+  """Array of nodes."""
+  nodes: [Client!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type ClientCountAggregate {
+  createdAt: Int
+  deletedAt: Int
+  description: Int
+  discount: Int
+  fess: Int
+  id: Int
+  iss: Int
+  name: Int
+  updateAt: Int
+}
+
+input ClientDeleteFilter {
+  and: [ClientDeleteFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  discount: NumberFieldComparison
+  fess: NumberFieldComparison
+  id: StringFieldComparison
+  iss: NumberFieldComparison
+  name: StringFieldComparison
+  or: [ClientDeleteFilter!]
+  updateAt: DateFieldComparison
+}
+
+type ClientDeleteResponse {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  discount: Float
+  fess: Float
+  id: String
+  iss: Float
+  name: String
+  updateAt: DateTime
+}
+
+input ClientFilter {
+  and: [ClientFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  discount: NumberFieldComparison
+  fess: NumberFieldComparison
+  id: StringFieldComparison
+  iss: NumberFieldComparison
+  name: StringFieldComparison
+  or: [ClientFilter!]
+  updateAt: DateFieldComparison
+}
+
+type ClientMaxAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  discount: Float
+  fess: Float
+  id: String
+  iss: Float
+  name: String
+  updateAt: DateTime
+}
+
+type ClientMinAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  discount: Float
+  fess: Float
+  id: String
+  iss: Float
+  name: String
+  updateAt: DateTime
+}
+
+input ClientSort {
+  direction: SortDirection!
+  field: ClientSortFields!
+  nulls: SortNulls
+}
+
+enum ClientSortFields {
+  createdAt
+  deletedAt
+  description
+  discount
+  fess
+  id
+  iss
+  name
+  updateAt
+}
+
+type ClientSumAggregate {
+  discount: Float
+  fess: Float
+  iss: Float
+}
+
+input ClientUpdateFilter {
+  and: [ClientUpdateFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  discount: NumberFieldComparison
+  fess: NumberFieldComparison
+  id: StringFieldComparison
+  iss: NumberFieldComparison
+  name: StringFieldComparison
+  or: [ClientUpdateFilter!]
+  updateAt: DateFieldComparison
+}
+
+input CreateClientInput {
+  description: String!
+  discount: Float!
+  fess: Float!
+  iss: Float!
+  name: String!
+}
+
+input CreateHierarchyInput {
+  description: String!
+  name: String!
+  p2: Float!
+  salary: Float!
+  value: Float!
+}
+
+input CreateManyClientsInput {
+  """Array of records to create"""
+  clients: [CreateClientInput!]!
+}
+
+input CreateManyHierarchiesInput {
+  """Array of records to create"""
+  hierarchies: [CreateHierarchyInput!]!
+}
+
+input CreateManyPeopleInput {
+  """Array of records to create"""
+  people: [CreatePersonInput!]!
+}
+
+input CreateManyPeopleXHierarchiesInput {
+  """Array of records to create"""
+  peopleXHierarchies: [CreatePeopleXHierarchyInput!]!
+}
+
+input CreateOneClientInput {
+  """The record to create"""
+  client: CreateClientInput!
+}
+
+input CreateOneHierarchyInput {
+  """The record to create"""
+  hierarchy: CreateHierarchyInput!
+}
+
+input CreateOnePeopleXHierarchyInput {
+  """The record to create"""
+  peopleXHierarchy: CreatePeopleXHierarchyInput!
+}
+
+input CreateOnePersonInput {
+  """The record to create"""
+  person: CreatePersonInput!
+}
+
+input CreatePeopleXHierarchyInput {
+  attendance: String!
+  hierarchy_id: String!
+  month: String!
+  person_id: String!
+  value: Float!
+  year: String!
+}
+
+input CreatePersonInput {
+  name: String!
+}
+
+input DateFieldComparison {
+  between: DateFieldComparisonBetween
+  eq: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  is: Boolean
+  isNot: Boolean
+  lt: DateTime
+  lte: DateTime
+  neq: DateTime
+  notBetween: DateFieldComparisonBetween
+  notIn: [DateTime!]
+}
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DeleteManyClientsInput {
+  """Filter to find records to delete"""
+  filter: ClientDeleteFilter!
+}
+
+input DeleteManyHierarchiesInput {
+  """Filter to find records to delete"""
+  filter: HierarchyDeleteFilter!
+}
+
+input DeleteManyPeopleInput {
+  """Filter to find records to delete"""
+  filter: PersonDeleteFilter!
+}
+
+input DeleteManyPeopleXHierarchiesInput {
+  """Filter to find records to delete"""
+  filter: PeopleXHierarchyDeleteFilter!
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+input DeleteOneClientInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOneHierarchyInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOnePeopleXHierarchyInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOnePersonInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+type Hierarchy {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String!
+  id: String!
+  name: String!
+  p2: Float!
+  salary: Float!
+  updateAt: DateTime!
+  value: Float!
+}
+
+type HierarchyAggregateGroupBy {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  name: String
+  p2: Float
+  salary: Float
+  updateAt: DateTime
+  value: Float
+}
+
+type HierarchyAvgAggregate {
+  p2: Float
+  salary: Float
+  value: Float
+}
+
+type HierarchyConnection {
+  """Array of nodes."""
+  nodes: [Hierarchy!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type HierarchyCountAggregate {
+  createdAt: Int
+  deletedAt: Int
+  description: Int
+  id: Int
+  name: Int
+  p2: Int
+  salary: Int
+  updateAt: Int
+  value: Int
+}
+
+input HierarchyDeleteFilter {
+  and: [HierarchyDeleteFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [HierarchyDeleteFilter!]
+  p2: NumberFieldComparison
+  salary: NumberFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+}
+
+type HierarchyDeleteResponse {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  name: String
+  p2: Float
+  salary: Float
+  updateAt: DateTime
+  value: Float
+}
+
+input HierarchyFilter {
+  and: [HierarchyFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [HierarchyFilter!]
+  p2: NumberFieldComparison
+  salary: NumberFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+}
+
+type HierarchyMaxAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  name: String
+  p2: Float
+  salary: Float
+  updateAt: DateTime
+  value: Float
+}
+
+type HierarchyMinAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  name: String
+  p2: Float
+  salary: Float
+  updateAt: DateTime
+  value: Float
+}
+
+input HierarchySort {
+  direction: SortDirection!
+  field: HierarchySortFields!
+  nulls: SortNulls
+}
+
+enum HierarchySortFields {
+  createdAt
+  deletedAt
+  description
+  id
+  name
+  p2
+  salary
+  updateAt
+  value
+}
+
+type HierarchySumAggregate {
+  p2: Float
+  salary: Float
+  value: Float
+}
+
+input HierarchyUpdateFilter {
+  and: [HierarchyUpdateFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  description: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [HierarchyUpdateFilter!]
+  p2: NumberFieldComparison
+  salary: NumberFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
 }
 
 type Mutation {
-  createPeople(createPeopleInput: CreatePeopleInput!): People!
-  removePeople(id: Int!): People!
-  updatePeople(updatePeopleInput: UpdatePeopleInput!): People!
+  addPeoplexhierarchiesToPerson(input: AddPeoplexhierarchiesToPersonInput!): Person!
+  createManyClients(input: CreateManyClientsInput!): [Client!]!
+  createManyHierarchies(input: CreateManyHierarchiesInput!): [Hierarchy!]!
+  createManyPeople(input: CreateManyPeopleInput!): [Person!]!
+  createManyPeopleXHierarchies(input: CreateManyPeopleXHierarchiesInput!): [PeopleXHierarchy!]!
+  createOneClient(input: CreateOneClientInput!): Client!
+  createOneHierarchy(input: CreateOneHierarchyInput!): Hierarchy!
+  createOnePeopleXHierarchy(input: CreateOnePeopleXHierarchyInput!): PeopleXHierarchy!
+  createOnePerson(input: CreateOnePersonInput!): Person!
+  deleteManyClients(input: DeleteManyClientsInput!): DeleteManyResponse!
+  deleteManyHierarchies(input: DeleteManyHierarchiesInput!): DeleteManyResponse!
+  deleteManyPeople(input: DeleteManyPeopleInput!): DeleteManyResponse!
+  deleteManyPeopleXHierarchies(input: DeleteManyPeopleXHierarchiesInput!): DeleteManyResponse!
+  deleteOneClient(input: DeleteOneClientInput!): ClientDeleteResponse!
+  deleteOneHierarchy(input: DeleteOneHierarchyInput!): HierarchyDeleteResponse!
+  deleteOnePeopleXHierarchy(input: DeleteOnePeopleXHierarchyInput!): PeopleXHierarchyDeleteResponse!
+  deleteOnePerson(input: DeleteOnePersonInput!): PersonDeleteResponse!
+  removePeoplexhierarchiesFromPerson(input: RemovePeoplexhierarchiesFromPersonInput!): Person!
+  removePersonFromPeopleXHierarchy(input: RemovePersonFromPeopleXHierarchyInput!): PeopleXHierarchy!
+  setPeoplexhierarchiesOnPerson(input: SetPeoplexhierarchiesOnPersonInput!): Person!
+  setPersonOnPeopleXHierarchy(input: SetPersonOnPeopleXHierarchyInput!): PeopleXHierarchy!
+  updateManyClients(input: UpdateManyClientsInput!): UpdateManyResponse!
+  updateManyHierarchies(input: UpdateManyHierarchiesInput!): UpdateManyResponse!
+  updateManyPeople(input: UpdateManyPeopleInput!): UpdateManyResponse!
+  updateManyPeopleXHierarchies(input: UpdateManyPeopleXHierarchiesInput!): UpdateManyResponse!
+  updateOneClient(input: UpdateOneClientInput!): Client!
+  updateOneHierarchy(input: UpdateOneHierarchyInput!): Hierarchy!
+  updateOnePeopleXHierarchy(input: UpdateOnePeopleXHierarchyInput!): PeopleXHierarchy!
+  updateOnePerson(input: UpdateOnePersonInput!): Person!
 }
 
-type People {
-  """Example field (placeholder)"""
-  exampleField: Int!
+input NumberFieldComparison {
+  between: NumberFieldComparisonBetween
+  eq: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  is: Boolean
+  isNot: Boolean
+  lt: Float
+  lte: Float
+  neq: Float
+  notBetween: NumberFieldComparisonBetween
+  notIn: [Float!]
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
+type OffsetPageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+}
+
+input OffsetPaging {
+  """Limit the number of records returned"""
+  limit: Int
+
+  """Offset to start returning records from"""
+  offset: Int
+}
+
+type PeopleXHierarchy {
+  attendance: String!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  hierarchy_id: String!
+  id: String!
+  month: String!
+  person: Person!
+  person_id: String!
+  updateAt: DateTime!
+  value: Float!
+  year: String!
+}
+
+type PeopleXHierarchyAggregateGroupBy {
+  attendance: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  hierarchy_id: String
+  id: String
+  month: String
+  person_id: String
+  updateAt: DateTime
+  value: Float
+  year: String
+}
+
+type PeopleXHierarchyAvgAggregate {
+  value: Float
+}
+
+type PeopleXHierarchyConnection {
+  """Array of nodes."""
+  nodes: [PeopleXHierarchy!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type PeopleXHierarchyCountAggregate {
+  attendance: Int
+  createdAt: Int
+  deletedAt: Int
+  hierarchy_id: Int
+  id: Int
+  month: Int
+  person_id: Int
+  updateAt: Int
+  value: Int
+  year: Int
+}
+
+input PeopleXHierarchyDeleteFilter {
+  and: [PeopleXHierarchyDeleteFilter!]
+  attendance: StringFieldComparison
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  hierarchy_id: StringFieldComparison
+  id: StringFieldComparison
+  month: StringFieldComparison
+  or: [PeopleXHierarchyDeleteFilter!]
+  person_id: StringFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+  year: StringFieldComparison
+}
+
+type PeopleXHierarchyDeleteResponse {
+  attendance: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  hierarchy_id: String
+  id: String
+  month: String
+  person_id: String
+  updateAt: DateTime
+  value: Float
+  year: String
+}
+
+input PeopleXHierarchyFilter {
+  and: [PeopleXHierarchyFilter!]
+  attendance: StringFieldComparison
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  hierarchy_id: StringFieldComparison
+  id: StringFieldComparison
+  month: StringFieldComparison
+  or: [PeopleXHierarchyFilter!]
+  person: PeopleXHierarchyFilterPersonFilter
+  person_id: StringFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+  year: StringFieldComparison
+}
+
+input PeopleXHierarchyFilterPersonFilter {
+  and: [PeopleXHierarchyFilterPersonFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PeopleXHierarchyFilterPersonFilter!]
+  updateAt: DateFieldComparison
+}
+
+type PeopleXHierarchyMaxAggregate {
+  attendance: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  hierarchy_id: String
+  id: String
+  month: String
+  person_id: String
+  updateAt: DateTime
+  value: Float
+  year: String
+}
+
+type PeopleXHierarchyMinAggregate {
+  attendance: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  hierarchy_id: String
+  id: String
+  month: String
+  person_id: String
+  updateAt: DateTime
+  value: Float
+  year: String
+}
+
+input PeopleXHierarchySort {
+  direction: SortDirection!
+  field: PeopleXHierarchySortFields!
+  nulls: SortNulls
+}
+
+enum PeopleXHierarchySortFields {
+  attendance
+  createdAt
+  deletedAt
+  hierarchy_id
+  id
+  month
+  person_id
+  updateAt
+  value
+  year
+}
+
+type PeopleXHierarchySumAggregate {
+  value: Float
+}
+
+input PeopleXHierarchyUpdateFilter {
+  and: [PeopleXHierarchyUpdateFilter!]
+  attendance: StringFieldComparison
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  hierarchy_id: StringFieldComparison
+  id: StringFieldComparison
+  month: StringFieldComparison
+  or: [PeopleXHierarchyUpdateFilter!]
+  person_id: StringFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+  year: StringFieldComparison
+}
+
+type Person {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  id: String!
+  name: String!
+  peoplexhierarchies(
+    """Specify to filter the records returned."""
+    filter: PeopleXHierarchyFilter = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [PeopleXHierarchySort!] = []
+  ): PersonPeoplexhierarchiesConnection
+  updateAt: DateTime!
+}
+
+type PersonAggregateGroupBy {
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String
+  updateAt: DateTime
+}
+
+type PersonConnection {
+  """Array of nodes."""
+  nodes: [Person!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type PersonCountAggregate {
+  createdAt: Int
+  deletedAt: Int
+  id: Int
+  name: Int
+  updateAt: Int
+}
+
+input PersonDeleteFilter {
+  and: [PersonDeleteFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PersonDeleteFilter!]
+  updateAt: DateFieldComparison
+}
+
+type PersonDeleteResponse {
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String
+  updateAt: DateTime
+}
+
+input PersonFilter {
+  and: [PersonFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PersonFilter!]
+  peoplexhierarchy: PersonFilterPeopleXHierarchyFilter
+  updateAt: DateFieldComparison
+}
+
+input PersonFilterPeopleXHierarchyFilter {
+  and: [PersonFilterPeopleXHierarchyFilter!]
+  attendance: StringFieldComparison
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  hierarchy_id: StringFieldComparison
+  id: StringFieldComparison
+  month: StringFieldComparison
+  or: [PersonFilterPeopleXHierarchyFilter!]
+  person_id: StringFieldComparison
+  updateAt: DateFieldComparison
+  value: NumberFieldComparison
+  year: StringFieldComparison
+}
+
+type PersonMaxAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String
+  updateAt: DateTime
+}
+
+type PersonMinAggregate {
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String
+  updateAt: DateTime
+}
+
+type PersonPeoplexhierarchiesConnection {
+  """Array of nodes."""
+  nodes: [PeopleXHierarchy!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+input PersonSort {
+  direction: SortDirection!
+  field: PersonSortFields!
+  nulls: SortNulls
+}
+
+enum PersonSortFields {
+  createdAt
+  deletedAt
+  id
+  name
+  updateAt
+}
+
+input PersonUpdateFilter {
+  and: [PersonUpdateFilter!]
+  createdAt: DateFieldComparison
+  deletedAt: DateFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PersonUpdateFilter!]
+  updateAt: DateFieldComparison
 }
 
 type Query {
-  people(id: Int!): People!
-  peoples: [People!]!
+  client(
+    """The id of the record to find."""
+    id: ID!
+  ): Client
+  clients(
+    """Specify to filter the records returned."""
+    filter: ClientFilter = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [ClientSort!] = []
+  ): ClientConnection!
+  hierarchies(
+    """Specify to filter the records returned."""
+    filter: HierarchyFilter = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [HierarchySort!] = []
+  ): HierarchyConnection!
+  hierarchy(
+    """The id of the record to find."""
+    id: ID!
+  ): Hierarchy
+  people(
+    """Specify to filter the records returned."""
+    filter: PersonFilter = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [PersonSort!] = []
+  ): PersonConnection!
+  peopleXHierarchies(
+    """Specify to filter the records returned."""
+    filter: PeopleXHierarchyFilter = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [PeopleXHierarchySort!] = []
+  ): PeopleXHierarchyConnection!
+  peopleXHierarchy(
+    """The id of the record to find."""
+    id: ID!
+  ): PeopleXHierarchy
+  person(
+    """The id of the record to find."""
+    id: ID!
+  ): Person
 }
 
-input UpdatePeopleInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+input RemovePeoplexhierarchiesFromPersonInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input RemovePersonFromPeopleXHierarchyInput {
+  """The id of the record."""
+  id: ID!
+
+  """The id of relation."""
+  relationId: ID!
+}
+
+input SetPeoplexhierarchiesOnPersonInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input SetPersonOnPeopleXHierarchyInput {
+  """The id of the record."""
+  id: ID!
+
+  """The id of relation."""
+  relationId: ID!
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+input StringFieldComparison {
+  eq: String
+  gt: String
+  gte: String
+  iLike: String
+  in: [String!]
+  is: Boolean
+  isNot: Boolean
+  like: String
+  lt: String
+  lte: String
+  neq: String
+  notILike: String
+  notIn: [String!]
+  notLike: String
+}
+
+input UpdateClientInput {
+  description: String
+  discount: Float
+  fess: Float
+  id: ID
+  iss: Float
+  name: String
+}
+
+input UpdateHierarchyInput {
+  description: String
+  id: ID
+  name: String
+  p2: Float
+  salary: Float
+  value: Float
+}
+
+input UpdateManyClientsInput {
+  """Filter used to find fields to update"""
+  filter: ClientUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateClientInput!
+}
+
+input UpdateManyHierarchiesInput {
+  """Filter used to find fields to update"""
+  filter: HierarchyUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateHierarchyInput!
+}
+
+input UpdateManyPeopleInput {
+  """Filter used to find fields to update"""
+  filter: PersonUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdatePersonInput!
+}
+
+input UpdateManyPeopleXHierarchiesInput {
+  """Filter used to find fields to update"""
+  filter: PeopleXHierarchyUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdatePeopleXHierarchyInput!
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+input UpdateOneClientInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateClientInput!
+}
+
+input UpdateOneHierarchyInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateHierarchyInput!
+}
+
+input UpdateOnePeopleXHierarchyInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdatePeopleXHierarchyInput!
+}
+
+input UpdateOnePersonInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdatePersonInput!
+}
+
+input UpdatePeopleXHierarchyInput {
+  attendance: String
+  hierarchy_id: String
+  id: ID
+  month: String
+  person_id: String
+  value: Float
+  year: String
+}
+
+input UpdatePersonInput {
+  id: String!
+  name: String
 }

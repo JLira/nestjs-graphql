@@ -3,7 +3,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppService } from './app.service';
-import { PeoplesModule } from './modules/peoples/peoples.module';
+import { PersonsModule } from './modules/persons/persons.module';
+import { ClientModule } from './modules/client/client.module';
+import { HierarchiesModule } from './modules/hierarchies/hierarchies.module';
+import { PeopleXHierarchiesModule } from './modules/people_x_hierarchies/people_x_hierarchies.module';
 
 @Module({
   imports: [
@@ -12,7 +15,10 @@ import { PeoplesModule } from './modules/peoples/peoples.module';
       sortSchema: true,
     }),
     TypeOrmModule.forRoot(),
-    PeoplesModule,
+    PersonsModule,
+    ClientModule,
+    HierarchiesModule,
+    PeopleXHierarchiesModule,
   ],
   providers: [AppService],
 })
